@@ -1,0 +1,59 @@
+body {
+    text-align: center;
+}
+
+.hours {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.time {
+    height: 20px;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.time-1 {
+    background-color: green;
+    height: 20px;
+    width: 50%;
+}
+
+.time-2 {
+    background-color: darkgreen;
+    height: 20px;
+    width: 50%;
+}
+
+.events div {
+    background-color: rosybrown;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 45px;
+}
+
+.events div span {
+    position: relative;
+    top: 20px;
+}
+
+.choosen-event {
+    box-shadow:0 0 15px red;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 30px 20px;
+    cursor: pointer;
+}
