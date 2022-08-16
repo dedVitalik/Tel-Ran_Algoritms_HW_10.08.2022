@@ -4,6 +4,19 @@ function randomInteger(min, max) {
     return Math.floor(rand);
 }
 
+// service function - get application cost
+function getApplicationCost(startTime, endTime) {
+    let cheapTime = 0;
+    let expensiveTime = 0;
+    if (startTime < 13) {
+        cheapTime = 13 - startTime;
+    }
+    if (endTime >= 13) {
+        expensiveTime = endTime - 13;
+    }
+    return cheapTime > expensiveTime ? 1 : 2;
+}
+
 // timetable visualization
 const arrOfHours = [];
 let hours = document.querySelector('.hours');
@@ -29,7 +42,7 @@ const getArratOfEventsApplications = () => {
             newEvent.endTime = newEvent.endTime - 1;
             newEvent.startTime = newEvent.startTime - 1;
         }
-        newEvent.cost = newEvent.startTime < 13 ? 1 : 2;
+        newEvent.cost = getApplicationCost(newEvent.startTime, newEvent.endTime);
         newEvent.description = `C ${newEvent.startTime}:00 до ${newEvent.endTime}:00 / ${newEvent.cost} евро`;
         arrOfEvents.push(newEvent);
     }
@@ -49,7 +62,7 @@ const renderEventsApplications = () => {
         const newEventContainer = document.createElement('div');
         newEventContainer.style.marginLeft = `${(evt.startTime - 8) * 10}%`;
         newEventContainer.style.width = `${(evt.endTime - evt.startTime) * 10}%`;
-        newTextContainer = document.createElement('span');
+        const newTextContainer = document.createElement('span');
         newTextContainer.innerText = evt.description;
         newEventContainer.append(newTextContainer);
         return newEventContainer;
